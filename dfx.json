@@ -7,9 +7,15 @@
     },
     "frontend": {
       "type": "assets",
-      "dependencies": ["backend"],
-      "source": ["src/backend/dist"],
-      "workspace": "backend"
+      "dependencies": [
+        "backend"
+      ],
+      "frontend": {
+         "entrypoint": "src/frontend/index.html"
+      },
+      "source": [
+        "src/frontend/dist"
+      ]
     },
     "internet_identity": {
       "type": "custom",

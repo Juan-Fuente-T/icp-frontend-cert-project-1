@@ -33,6 +33,7 @@ export default defineConfig({
   resolve: {
     alias: [
       {
+        '@': '/src',
         find: "declarations",
         replacement: fileURLToPath(
           new URL("../declarations", import.meta.url)
