@@ -5,7 +5,7 @@ function LoginButton() {
     const { login } = useContext(AuthContext);
 
     return (
-        <button onClick={login}>Log in</button>
+        <button className="p-1 mr-4 bg-stone-300 text-stone-800 rounded-md hover:scale-105" onClick={login}>Log in</button>
     )
 }
 export default LoginButton;

@@ -81,15 +81,15 @@ import { AuthContext } from '../context/AuthContext';
       <span>${product.price * quantity}{' '}</span>
       </div>
       <div className="flex items-center space-x-2">
-        <button onClick={handleDecrement} className="h-9 w-9 m-4 bg-gray-200 rounded hover:bg-gray-300">-</button>
-        <button onClick={handleIncrement} className="h-9 w-9 bg-gray-200 rounded hover:bg-gray-300">+</button>
+        <button onClick={handleDecrement} className="h-9 w-9 m-4 bg-gray-200 rounded hover:bg-gray-300 hover:scale-105">-</button>
+        <button onClick={handleIncrement} className="h-9 w-9 bg-gray-200 rounded hover:bg-gray-300 hover:scale-105">+</button>
       </div>    
-  </div>
 <div className="flex justify-center">
         {/* <button onClick={handleIncrement} className="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300">Comprar</button> */}
-      <button onClick={() => onRemove(product.id)} className="ml-4 px-2 py-1 bg-red-500 text-white rounded hover:bg-red-600">Eliminar</button>
+      <button onClick={() => onRemove(product.id)} className="ml-4 px-2 py-1 bg-red-500 text-white font-bold rounded hover:bg-red-600 hover:scale-105">Eliminar</button>
       </div>
 </div>
+  </div>
     </li>
   );
 };
