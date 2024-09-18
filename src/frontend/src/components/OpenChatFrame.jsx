@@ -36,12 +36,14 @@ function OpenChatFrame({ path = '/community/rfeib-riaaa-aaaar-ar3oq-cai/channel/
   }, [path, theme]);
 
   return (
+    <div className="fixed bottom-4 right-4 w-80 h-48 z-50">
     <iframe
       ref={iframeRef}
       title="OpenChat Frame"
-      className="w-1/5 h-48 rounded-md"
-    //   style={{ width: '15em', height: '8em', border: 'none' }}
+      className="w-full h-full rounded-lg opacity-80"
+    //   style={{ width: '15em', height: '8em', border: 'none' }
     />
+  </div>
   );
 }
 

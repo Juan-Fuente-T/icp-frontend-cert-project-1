@@ -45,9 +45,9 @@ function Navbar() {
   
 return (
   <nav className="flex w-full bg-gray-800 text-white py-4">
-    <div className="container mx-auto flex justify-stretch items-center border-2 border-red-500">
+    <div className="w-full mx-auto flex justify-stretch items-center w-full">
       <div className="flex-grow">
-        <h1 className="text-xl font-bold ml-4">Mi Aplicación</h1>
+        <h1 className="text-xl font-bold ml-4">Mi tienda</h1>
       </div>
       <ul className="flex space-x-4">
         <li><Link to="/" className="hover:text-gray-400">Inicio</Link></li>
@@ -61,7 +61,9 @@ return (
         <span className="absolute -top-2 -right-2 bg-red-500 text-xs rounded-full w-5 h-5 flex items-center justify-center">{productsInCart?.length}</span>
       </div>
     </div>
+    <div className="w-40 text-lg md:text-2xl flex justify-end items-center">
       {isAuthenticated ? <LogoutButton /> : <LoginButton />}
+    </div>
   </nav>
 );
 } 

@@ -48,46 +48,14 @@ import { useCart } from '../context/CartContext';
         console.log("Products IN CART", productsInCart);
     }, []);
 
-    // return(
-    //         <div>
-    //     <header>
-    //       <h2>Cart</h2>
-    //     {/* <div>
-    //       <h2 className="text-2xl font-bold">
-    //         <Link to="/" className="text-black no-underline">ProductsXX</Link>
-    //       </h2>
-    //     </div>
-    //     <div>
-    //     {isAuthenticated ? <LogoutButton /> : <LoginButton />}
-    //     </div> */}
-    //     </header>
-    //     <main>
 
-    //     <h2 className="text-xl font-semibold mb-4">Shopping cart</h2>
-    //     {_productsInCart ? (
-    //     <ul>
-    //         {_productsInCart.map((item, index) => (
-    //         <li key={index} className="mb-2">
-    //             {item.name} - ${item.price}
-    //         </li>
-    //         ))}
-    //     </ul>
-    // ) : (
-    //     <h2 className="text-xl font-semibold mb-4">Tu carrito está vacío</h2>
-    // )}
-    //     </main>
-    //     </div>
-    // );
-    
-    // }
-    // console.log("Data IN CART", product, quantity);
     const handleRemove = async (productId) => {
       try {
         console.log("Product", productId);
         // const result = await backend.removeFromCart(productId);
         const result = await removeFromCart(productId);
         if (result.success) {
-          alert("Se ha eliminado el producto");
+          alert("Se ha eliminado el producto del carrito");
            // Actualizar el estado local
           setCartItems(prevItems => prevItems.filter(item => item.product.id !== productId));
         }
@@ -96,35 +64,7 @@ import { useCart } from '../context/CartContext';
       }
     };
 
-    async function handleDecrement () {
-    // onQuantityChange(product.id, Math.max(quantity - 1, 1));
-    try{
-      console.log("Product-quantity", product.id, quantity+44);
-      if(quantity === 1){
-        handleRemove();
-      }else{
-        const result = await backend.updateQuantity(product.id, quantity-1);
-        if("ok" in result){
-          alert("Se ha decrementado la cantidad de producto");
-        } 
-      }
-    } catch (err) {
-      console.error("Error decrementando el producto:", err);
-    }
-  };
 
-  async function handleIncrement () {
-    // onQuantityChange(product.id, quantity + 1);
-    try{
-      console.log("Product and new quantity", product.id, quantity+1);
-      const result = await backend.updateQuantity(product.id, quantity+1);
-      if("ok" in result){
-        alert("Se ha incrementado la cantidad de producto");
-      } 
-    } catch (err) {
-      console.error("Error incrementando el producto:", err);
-    }
-  };
   
   const handleQuantity = async (productId, newQuantity) => {
     if (newQuantity === 0) {
@@ -147,11 +87,18 @@ import { useCart } from '../context/CartContext';
 
   const handlePurchase = async () => {
     try {
-      alert("Has realizado la compra con éxito");
-      // Limpiar el carrito local después de una compra exitosa
-      setCartItems([]);
+      if (window.confirm("¿Estás seguro de que quieres realizar esta compra?")) {
+        // for(i=0; i<cartItems.length; i++){
+          //   handleQuantity(cartItems[i].product.id, 0)
+          // }
+          for (let item of cartItems) {
+            await handleQuantity(item.product.id, 0);
+          }
+          alert("Has realizado la compra con éxito");
+        }
     } catch (err) {
       console.error("Error durante la compra:", err);
+      alert("Hubo un error al procesar la compra. Por favor, intenta de nuevo.");
     }
   };
     console.log("productsInCart Cart", productsInCart);
@@ -163,7 +110,7 @@ import { useCart } from '../context/CartContext';
           </div>
           <h2 className="p-2 px-4 mb-4 w-fit bg-stone-200 rounded-md font-bold">Productos</h2>
         </header>
-        <main className="p-4 bg-stone-100 rounded-lg">
+        <main className="p-4 bg-stone-100 rounded-lg w-4/5 2xl:w-5/6">
           {loading ? (
             <div>
               <p>Cargando carrito...</p>

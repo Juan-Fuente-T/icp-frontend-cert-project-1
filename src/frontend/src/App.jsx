@@ -74,7 +74,7 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col container items-center my-4 mx-auto px-4 border-2 border-green-800  w-full">
+    <div className="flex flex-col container items-center my-4 mx-auto px-4 w-full">
       <header className="py-4 w-full">
         <div className="flex p-4 justify-center font-bold">
           <h1 className="w-1/3 text-center py-2 mb-6 bg-stone-100 rounded-md">

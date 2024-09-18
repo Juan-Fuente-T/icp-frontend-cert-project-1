@@ -44,20 +44,22 @@ const ProductsGrid = () => {
       }
     }
 
-    const handleAddToCart = async (productId) => {
+    const handleAddToCart = async (product) => {
       // e.preventDefault();
       try {
-        console.log("ProductId) addToCart:", productId);
-        const result = await addToCart(productId);
-        console.log("RESULT:", result);
+        console.log("XXProduct addToCart:", product);
+        console.log("XXXProductId addToCart:", product.id);
+        console.log("XXXXProduct name addToCart:", product.name);
+        const result = await addToCart(product.id);
         if (result.success) {
           // productsInCart.push(productId);
           // setProductsInCart(productsInCart);
-          setProductsInCart(prev => [...prev, productId]);
+          setProductsInCart(prev => [...prev, product.id]);
           console.log("result addToCart", result);
           console.log("productsInCart", productsInCart);
           // alert("Se ha añadido el producto al carrito")
           setIsModalOpen(true);
+          setProductName(product.name);
           const result2 = await backend.getCart();
           if ("ok" in result) {
             console.log("result2 addToCart", result2);
@@ -69,11 +71,8 @@ const ProductsGrid = () => {
       }
     };
     const handleOpenModal = (product) => {
-      console.log("product", product);
-      console.log("product.NAME", product.name);
       setIsModalOpen(true);
       setProductName(product.name);
-      // setQuantity(1);
     };
     return (
         <div className="flex flex-col p-4 items-center w-full border-2 border-stone-200 rounded-lg">
@@ -86,11 +85,12 @@ const ProductsGrid = () => {
                 </figure>
                 <div className="card-body">
                   <h3 className="font-bold text-lg">{product.name}</h3>
-                  <p className="text-gray-600">{product.description}</p>
+                  <p className="p-6 mb-2 text-gray-600 bg-stone-200 rounded-md">{product.description}</p>
                   <div className="flex justify-between items-center">
                     <span className="text-xl">${product.price}</span>
                     <button 
-                      onClick={() => {handleOpenModal({product});  handleAddToCart(product.id)}}
+                      // onClick={() => {handleOpenModal({product});  handleAddToCart({product.id})}}
+                      onClick={() => {handleAddToCart(product)}}
                       className="btn btn-primary"
                     >
                       Add to cart
