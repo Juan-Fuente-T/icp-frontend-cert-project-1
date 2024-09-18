@@ -44,17 +44,17 @@ function Navbar() {
 //   }
   
 return (
-  <nav className="flex bg-gray-800 text-white py-4">
-    <div className="container mx-auto flex justify-between items-center">
+  <nav className="flex w-full bg-gray-800 text-white py-4">
+    <div className="container mx-auto flex justify-stretch items-center border-2 border-red-500">
       <div className="flex-grow">
-        <h1 className="text-xl font-bold">Mi Aplicación</h1>
+        <h1 className="text-xl font-bold ml-4">Mi Aplicación</h1>
       </div>
       <ul className="flex space-x-4">
         <li><Link to="/" className="hover:text-gray-400">Inicio</Link></li>
         <li><Link to="/cart" className="hover:text-gray-400">Carrito</Link></li>
         {/* <li><Link to="/contacto" className="hover:text-gray-400">Contacto</Link></li> */}
       </ul>
-      <div className="relative ml-4">
+      <div className="relative mx-4">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
         </svg>

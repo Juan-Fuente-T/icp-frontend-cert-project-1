@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "setup": "npm i && dfx canister create icp-frontend-project-1-backend && dfx generate icp-frontend-project-1-backend && dfx deploy",
-    "start": "vite",
+    "start": "PORT=5173 vite",
     "prebuild": "dfx generate",
     "build": "tsc && vite build",
     "format": "prettier --write \"src/**/*.{json,js,jsx,ts,tsx,css,scss}\""
@@ -23,6 +23,7 @@
     "react-router-dom": "^6.26.2"
   },
   "devDependencies": {
+    "@open-ic/openchat-xframe": "^1.0.0",
     "@types/react": "^18.2.14",
     "@types/react-dom": "^18.2.6",
     "@vitejs/plugin-react": "^4.0.1",

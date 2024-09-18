@@ -76,8 +76,8 @@ const ProductsGrid = () => {
       // setQuantity(1);
     };
     return (
-        <div className="p-4">
-          <h2 className="text-xl font-semibold mb-4">Products</h2>
+        <div className="flex flex-col p-4 items-center w-full border-2 border-stone-200 rounded-lg">
+          <h2 className="w-1/3 text-center py-2 mb-6 bg-stone-100 rounded-md">Productos</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {allProducts.map((product, index) => (
               <div key={index} className="card w-full bg-base-200 shadow-xl">

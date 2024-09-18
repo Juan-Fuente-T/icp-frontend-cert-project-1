@@ -156,12 +156,14 @@ import { useCart } from '../context/CartContext';
   };
     console.log("productsInCart Cart", productsInCart);
     return (
-      <div className="p-4 bg-stone-100 rounded-lg">
+      <div>
         <header>
-          <h2 className="p-2 px-4 mb-4 w-fit bg-stone-200 rounded-md font-bold">
-            Productos</h2>
+          <div className="flex justify-center">
+          <h2 className="w-1/3 text-center py-2 mb-6 bg-stone-100 rounded-md">Carrito</h2>
+          </div>
+          <h2 className="p-2 px-4 mb-4 w-fit bg-stone-200 rounded-md font-bold">Productos</h2>
         </header>
-        <main>
+        <main className="p-4 bg-stone-100 rounded-lg">
           {loading ? (
             <div>
               <p>Cargando carrito...</p>
@@ -170,11 +172,15 @@ import { useCart } from '../context/CartContext';
           cartItems && Array.isArray(cartItems) ? (
             // <React.Fragment>
             <>
+            <div >
+
+            </div>
               {/* <CartItem cartItems={cartItems}/>  */}
               {/* <div>
               <p>productsInCart: {productsInCart.quantity}</p>
               <p>cartItems: {cartItems?.product?.name}</p>
             </div> */}
+
               {/* <h2 className="text-xl font-semibold mb-4">Carrito de compras</h2> */}
               <ul>
                 {cartItems.map((item, index) => (

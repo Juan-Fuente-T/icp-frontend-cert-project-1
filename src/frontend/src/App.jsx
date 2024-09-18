@@ -1,5 +1,6 @@
 import LoginButton from "./components/auth/LoginButton";
-import LogoutButton from "./components/auth/LogoutButton";
+import AuthModal from "./components/AuthModal";
+import OpenChatFrame from "./components/OpenChatFrame";
 import ProductsGrid from "./components/ProductsGrid";
 import React, { useState, useContext, useEffect} from 'react';
 import { Routes, Route } from "react-router-dom";
@@ -73,20 +74,22 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col container items-center my-4 mx-auto px-4">
+    <div className="flex flex-col container items-center my-4 mx-auto px-4 border-2 border-green-800  w-full">
       <header className="py-4 w-full">
         <div className="flex p-4 justify-center font-bold">
           <h1 className="w-1/3 text-center py-2 mb-6 bg-stone-100 rounded-md">
-          Carrito de compra
+          Tienda
           </h1>
         </div> 
       </header>
-      <main className=" p-4 w-2/3 justify-center">
+      <main className=" p-4 w-full justify-center w-full">
         <Routes>
           <Route path="/" element={<ProductsGrid onAddToCart={handleAddToCart} />} />
           <Route path="/cart" element={<Cart productsInCart={productsInCart} />} />
           {/* <Route path="/contacto" element={<div>Contacto</div>} /> */}
         </Routes>
+        <AuthModal/>
+        <OpenChatFrame/>
         {/* <AddProductModal isOpen={isModalOpen} productName={product.name} quantity={quantity} onRequestClose={() => setIsModalOpen(false)} /> */}
       </main>
     </div>
