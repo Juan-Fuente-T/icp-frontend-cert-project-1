@@ -1,5 +1,3 @@
-// src/context/CartContext.js
-
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { createActor } from '../../../declarations/backend';
 import { AuthContext } from './AuthContext';
@@ -29,8 +27,6 @@ export const CartProvider = ({ children }) => {
     try {
       const result = await backend.getCart();
       if ("ok" in result) {
-        // const cartItems = result.ok;
-        // const productIdsInCart = cartItems.map(item => item.product.id);
         setProductsInCart(result.ok);
       }
     } catch (err) {

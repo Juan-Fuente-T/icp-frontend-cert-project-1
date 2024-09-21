@@ -37,13 +37,13 @@ function OpenChatFrame({ path = '/community/rfeib-riaaa-aaaar-ar3oq-cai/channel/
 
   return (
     <div className="fixed bottom-4 right-4 w-80 h-48 z-50">
-    <iframe
-      ref={iframeRef}
-      title="OpenChat Frame"
-      className="w-full h-full rounded-lg opacity-80"
-    //   style={{ width: '15em', height: '8em', border: 'none' }
-    />
-  </div>
+      <iframe
+        ref={iframeRef}
+        title="OpenChat Frame"
+        className="w-full h-full rounded-lg opacity-80"
+      //   style={{ width: '15em', height: '8em', border: 'none' }
+      />
+    </div>
   );
 }
 
